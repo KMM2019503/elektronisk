@@ -1,12 +1,16 @@
 import React from "react";
-import Container from "./Container";
 import Link from "next/link";
+
+import Container from "./Container";
 import Image from "next/image";
 import MainNav from "./MainNav";
 import GetCategories from "@/actions/GetCategories";
+import NavbarAction from "./NavbarAction";
+
+export const revalidate = 0;
 
 const Navbar = async () => {
-  const datas = await GetCategories();
+  const data = await GetCategories();
 
   return (
     <div>
@@ -27,7 +31,8 @@ const Navbar = async () => {
                 />
               </Link>
             </div>
-            <MainNav data={datas} />
+            <MainNav data={data} />
+            <NavbarAction />
           </div>
         </Container>
       </div>

@@ -22,14 +22,14 @@ const MainNav = ({ data }: MainNavProps) => {
   }));
   return (
     <nav>
-      <div className="flex items-center space-x-4 lg:space-x-6">
+      <div className="flex items-center gap-x-5">
         {routes.map((route) => (
           <Link
             key={route.href}
             href={route.href}
             className={cn(
-              "text-center text-sm lg:text-base font-medium transition-all hover:text-primary",
-              route.isActive ? "text-orange-500" : "text-muted-foreground"
+              "text-center text-sm lg:text-base font-medium transition-all hover:text-orange-500",
+              route.isActive ? "text-purple-700" : "text-black"
             )}
           >
             {route.lable}
