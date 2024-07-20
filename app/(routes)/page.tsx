@@ -1,6 +1,6 @@
 import React from "react";
 
-import GetProducts from "@/actions/GetProduct";
+import GetProducts from "@/actions/GetProducts";
 import GetBillboard from "@/actions/GetBillboard";
 import Billboard from "@/components/Billboard";
 import Container from "@/components/Container";
@@ -10,7 +10,7 @@ export const revalidate = 0;
 
 const HomePage = async () => {
   const products = await GetProducts({ isFeatured: true });
-  const billboard = await GetBillboard("d4a20756-cc8c-4636-be8a-f0759af2f9ad");
+  const billboard = await GetBillboard("13892854-ba2a-4fa4-b338-88e139d5a243");
   return (
     <Container>
       <div className="space-t-10 pb-10">

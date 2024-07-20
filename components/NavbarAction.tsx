@@ -17,8 +17,8 @@ const NavbarAction = () => {
   return (
     <div className="flex items-center gap-x-4">
       <Button>
-        <TiShoppingCart className="size-6 text-purple-500" />
-        <span className="text-xs absolute top-0 right-2 font-bold text-purple-500">
+        <TiShoppingCart className="size-6 text-gray-500" />
+        <span className="text-xs absolute top-0 right-2 font-bold text-gray-500">
           0
         </span>
       </Button>

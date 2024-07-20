@@ -39,6 +39,14 @@ export interface Product {
   categoryId: string;
   backcolorId: string;
   name: string;
+  displaySize: string;
+  displayType: string | null;
+  cpu: string;
+  memory: string;
+  mainCamera: string | null;
+  selfieCamera: string | null;
+  batteryType: string;
+  chargingSpeed: string | null;
   price: string;
   isFeatured: boolean;
   isAchived: boolean;
