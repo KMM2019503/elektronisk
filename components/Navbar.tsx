@@ -22,7 +22,9 @@ const Navbar = async () => {
                 href={"/"}
                 className="flex items-center justify-center ml-3 lg:ml-0"
               >
-                <p className="text-2xl font-bold">Elektronik</p>
+                <p className="text-2xl font-bold font-mono tracking-tight">
+                  Elektronik
+                </p>
                 <Image
                   alt="logo"
                   src={"/images/logo.png"}

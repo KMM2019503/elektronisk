@@ -7,6 +7,15 @@ interface ProductListProps {
 }
 
 const ProductLists = ({ products }: ProductListProps) => {
+  if (products.length < 1) {
+    return (
+      <div className="w-full text-center">
+        <p className="font-semibold text-sm md:text-base lg:text-lg">
+          no result found...
+        </p>
+      </div>
+    );
+  }
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-x-3 gap-y-2">

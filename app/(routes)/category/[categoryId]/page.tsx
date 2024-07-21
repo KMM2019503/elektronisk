@@ -5,6 +5,7 @@ import GetProducts from "@/actions/GetProducts";
 import Billboard from "@/components/Billboard";
 import Container from "@/components/Container";
 import ProductLists from "@/components/ProductLists";
+import Filter from "./components/Filter";
 
 export const revalidate = 0;
 
@@ -23,7 +24,7 @@ const Category = async ({ params, searchParams }: CategoryProps) => {
   const backcolors = await GetBackcolors();
 
   const products = await GetProducts({
-    categoryId: category.id,
+    categoryId: params.categoryId,
     backcolorId: searchParams.backcolorId,
   });
 
@@ -33,14 +34,7 @@ const Category = async ({ params, searchParams }: CategoryProps) => {
         <Billboard billboard={category.billboard} />
 
         <div className="flex flex-col gap-5">
-          <div className="flex  max-w-[300px] md:max-w-[500px] lg:max-w-[700px] overflow-x-auto gap-3 self-center p-3">
-            {backcolors.map((color) => (
-              <div
-                className="w-10 h-6 md:w-12 md:h-6 lg:w-16 lg:h-6 rounded-md shadow-md cursor-pointer hover:scale-105 transition"
-                style={{ backgroundColor: color.value }}
-              />
-            ))}
-          </div>
+          <Filter data={backcolors} valueKey="backcolorId" name="Backcolor" />
           <ProductLists products={products} />
         </div>
       </div>
