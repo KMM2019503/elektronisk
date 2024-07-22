@@ -12,8 +12,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         ref={ref}
         onClick={onClick}
+        type={type}
         className={cn(
-          "relative py-1 px-5 rounded-xl  hover:bg-gray-100 transition-all duration-300 ease-in-out disabled:cursor-not-allowed disabled:opacity-40",
+          "relative py-1 px-5 rounded-xl hover:bg-gray-100 transition-all duration-300 ease-in-out disabled:cursor-not-allowed disabled:opacity-40",
           className
         )}
       >
@@ -22,5 +23,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+
+Button.displayName = "Button";
 
 export default Button;
