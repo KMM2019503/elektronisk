@@ -28,16 +28,6 @@ const Summary = ({ items }: { items: Product[] }) => {
 
   const OnCheckOut = async () => {
     try {
-      // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     productIds: items.map((item) => item.id),
-      //   }),
-      // });
-
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
         {
@@ -45,12 +35,6 @@ const Summary = ({ items }: { items: Product[] }) => {
         }
       );
 
-      // if (!res.ok) {
-      //   throw new Error("Network response was not ok");
-      // }
-
-      // const data = await res.json();
-      // window.location = data.url;
       window.location = res.data.url;
     } catch (error) {
       console.error("There was a problem with the checkout request:", error);
@@ -79,6 +63,7 @@ const Summary = ({ items }: { items: Product[] }) => {
         <Button
           className="bg-gray-700 hover:bg-gray-900 text-white"
           onClick={OnCheckOut}
+          disabled={items.length === 0}
         >
           Checkout
         </Button>
