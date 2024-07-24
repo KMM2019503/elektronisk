@@ -41,21 +41,21 @@ const ProductCard = ({ product }: ProductCardProps) => {
       className="border group cursor-pointer rounded-md flex flex-col  p-2 space-y-2 shadow-lg"
     >
       <div className="w-full flex items-center justify-around">
-        <p className="font-bold text-base text-gray-900">{product.name}</p>
+        <p className="font-bold text-sm text-gray-900">{product.name}</p>
 
-        <p className="font-medium text-sm text-gray-500"> ${product.price}</p>
+        <p className="font-medium text-xs text-gray-500"> ${product.price}</p>
         <div
           className="size-6 rounded-full"
           style={{ backgroundColor: product.backcolor.value }}
         />
       </div>
       <div className="w-full flex justify-center items-center">
-        <div className="aspect-square size-full rounded-xl relative bg-zinc-100">
+        <div className="w-[230px] h-[300px] md:w-[200px] md:h-[250px] lg:w-[400px] lg:h-[450px]  rounded-xl relative">
           <Image
             src={product?.images?.[0]?.url}
             alt={product.name}
             fill
-            className="object-fill object-center"
+            className="object-contain object-center"
           />
           <div className="lg:opacity-0 group-hover:opacity-100 absolute transition-all duration-300 ease-in-out w-full bottom-5 px-6">
             <div className="flex items-center justify-center gap-x-3 ">

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { MouseEventHandler } from "react";
 
 import { Product } from "@/type";
 
@@ -8,8 +10,16 @@ import { FaCartPlus } from "react-icons/fa";
 import { GoCpu } from "react-icons/go";
 import { MdCloseFullscreen, MdOutlineCamera } from "react-icons/md";
 import { IoBatteryChargingOutline } from "react-icons/io5";
+import useCartItemsStore from "@/hooks/useCartItems";
 
 const ProductInfo = ({ product }: { product: Product }) => {
+  const cart = useCartItemsStore();
+
+  const handleAddProduct: MouseEventHandler = (event) => {
+    event.stopPropagation();
+
+    cart.addItem(product);
+  };
   return (
     <div className="w-full mt-5 lg:mt-0">
       {/* information */}
@@ -104,7 +114,10 @@ const ProductInfo = ({ product }: { product: Product }) => {
           </div>
         </div>
         <div className="self-end">
-          <Button className="bg-gray-800 hover:bg-gray-700 py-2 text-white flex items-center gap-3 font-serif">
+          <Button
+            className="bg-gray-800 hover:bg-gray-700 py-2 text-white flex items-center gap-3 font-serif"
+            onClick={handleAddProduct}
+          >
             Add To Cart
             <FaCartPlus className="size-4" />
           </Button>
