@@ -38,19 +38,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div
       onClick={handleClick}
-      className="border group cursor-pointer rounded-md flex flex-col  p-2 space-y-2 shadow-lg"
+      className="border group cursor-pointer rounded-md flex flex-col p-2 space-y-2 shadow-lg"
     >
-      <div className="w-full flex items-center justify-around">
-        <p className="font-bold text-sm text-gray-900">{product.name}</p>
-
-        <p className="font-medium text-xs text-gray-500"> ${product.price}</p>
-        <div
-          className="size-6 rounded-full"
-          style={{ backgroundColor: product.backcolor.value }}
-        />
-      </div>
       <div className="w-full flex justify-center items-center">
-        <div className="w-[230px] h-[300px] md:w-[200px] md:h-[250px] lg:w-[400px] lg:h-[450px]  rounded-xl relative">
+        <div className="w-[230px] h-[300px] md:w-[200px] md:h-[250px] rounded-xl relative overflow-hidden">
           <Image
             src={product?.images?.[0]?.url}
             alt={product.name}
@@ -65,14 +56,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </div>
         </div>
       </div>
+      <div className="w-full flex flex-col items-start px-2">
+        <p className="font-bold text-xs text-gray-900">{product.name}</p>
 
-      {/* <div className="ml-3 md:self-start ">
-        <p className="font-bold text-xl">{product.name}</p>
-        <p className="font-medium text-sm text-gray-500">
-          Category - {product.category.name}
+        <p className="font-medium text-xs text-gray-400">
+          ram/rom : {product.memory}
         </p>
-        <p className="font-bold text-lg">Price - ${product.price}</p>
-      </div> */}
+        <p className="font-medium text-xs text-gray-700"> ${product.price}</p>
+      </div>
     </div>
   );
 };

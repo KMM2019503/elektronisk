@@ -22,7 +22,7 @@ const MainNav = ({ data }: MainNavProps) => {
   }));
   return (
     <nav>
-      <div className="hidden lg:flex items-center gap-x-5">
+      <div className="hidden md:flex items-center gap-x-5">
         {routes.map((route) => (
           <Link
             key={route.href}
